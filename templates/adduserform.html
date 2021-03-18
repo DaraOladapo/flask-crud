@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Add User</title>
+</head>
+
+<body>
+    <h2>Add User</h2>
+    <p>Enter Details:</p>
+    <div>
+        <div class='form'>
+            <form method='POST' action=''>
+                {{form.hidden_tag()}}
+                {{form.first_name.label}}
+                <br>
+                {{form.first_name}}
+                <br>
+                {{form.last_name.label}}
+                <br>
+                {{form.last_name}}
+                <br>
+                {{form.email_address.label}}
+                <br>
+                {{form.email_address}}
+                <br>
+                {{form.submit}}
+                <br>
+                {{message}}
+            </form>
+            <br>
+            <br> <a href="{{url_for('home')}}" type="button">Cancel</a> </br>
+            
+        </div>
+</body>
+
+</html>
