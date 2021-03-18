@@ -11,4 +11,4 @@ class UpdateUserForm(FlaskForm):
     first_name = StringField('First Name')
     last_name = StringField('Last Name')
     email_address = StringField('Email Address')
-    submit = SubmitField('Update User')
+    submit = SubmitField('Update User') 

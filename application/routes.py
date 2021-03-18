@@ -23,18 +23,16 @@ def add():
             return redirect(url_for('home'))
     return render_template('adduserform.html',form=form)
 
-@app.route('/update/<int:id>', methods=['GET','PUT'])
+@app.route('/update/<int:id>', methods=['GET','POST'])
 def update(id):
     error=""
     form=forms.UpdateUserForm()
     user_to_update=Users.query.filter_by(id=id).first()
-    form.first_name.data=user_to_update.first_name
-    form.last_name.data=user_to_update.last_name
-    form.email_address.data=user_to_update.email_address
-    if request.method=='PUT':
+    if request.method=='POST':
         first_name=form.first_name.data
         last_name=form.last_name.data
         email_address=form.email_address.data
+        # print (first_name, last_name, email_address)
         if len(first_name) == 0 or len(last_name) == 0 or len(email_address) == 0:
             error = "Please supply both first, last name and email"
             return redirect(url_for('update', id=id))
@@ -44,6 +42,11 @@ def update(id):
             user_to_update.email_address=email_address
             db.session.commit()
             return redirect(url_for('home'))
+    else:
+        form.first_name.data=user_to_update.first_name
+        form.last_name.data=user_to_update.last_name
+        form.email_address.data=user_to_update.email_address
+
     return render_template('updateuserform.html',form=form,message=error)
 
 

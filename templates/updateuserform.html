@@ -9,7 +9,7 @@
     <p>Enter Details:</p>
     <div>
         <div class='form'>
-            <form method='PUT' action=''>
+            <form method='POST' action=''>
                 {{form.hidden_tag()}}
                 {{form.first_name.label}}
                 <br>
@@ -29,8 +29,8 @@
             </form>
             <br>
             <br> <a href="{{url_for('home')}}" type="button">Cancel</a> </br>
-
         </div>
+    </div>
 </body>
 
 </html>
